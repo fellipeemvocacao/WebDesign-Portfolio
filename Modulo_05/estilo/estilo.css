@@ -1,0 +1,166 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+     min-height: 100vh;
+     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+     position: relative;
+     overflow-x: hidden;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     padding: 40px 20px;
+     color: #791a1a
+}
+/*=== VÍDEO DE FUNDO ===*/
+/* O VÍDEO FICA FIXO, ATRÁS DE TUDO, COBRINDO A TELA INTEIRA*/
+.bg-video{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+/* CAMADA ESCURA POR CIMA DO VÍDEO, PARA O TEXTO FICAR LEGÍVEL*/
+.bg-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+   
+    z-index: -1;
+}
+/* CABEÇALHO */
+header{
+    text-align: center;
+    color: rgb(219, 175, 73);
+    margin-bottom: 40px;
+}
+header h1{
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 8px rgba(255, 230, 0, 0.527);
+}
+header p{
+     font-size: 1.1rem;
+     opacity: 0.9;
+}
+/* CARDS */
+.container-cards{
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.card{
+    position: relative;
+    width: 300px;
+    height: 380px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgb(0, 0, 0);
+    cursor: pointer;
+}
+.card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /*ESSA TRANSIÇÃO FAZ A IMAGEM CRESCER SUAVEMENTE */
+    transition: transform 0.5s ease;
+}
+/* AO PASSAR O MOUSE, A IMAGEM DÁ UM LEVE ZOOM */
+.card:hover img{
+    transform: scale(1.15);
+}
+/* O CONTEÚDO DO CARD FICA ESCONDIDO EM BAIXO, FORA DA VISTA */
+.card-conteudo{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    color: rgb(236, 240, 241);
+    background: linear-gradient(to top, rgba(192, 130, 36, 0.781));
+    /* COMEÇA DESLOCANDO PARA BAIXO, E INVÍSIVEL */
+    transform: translateY(60%);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+/* AO PASSAR O MOUSE NO CARD, O CONTEÚDO SOBE E APARECE */
+.card:hover .card-conteudo{
+    transform: translateY(0);
+    opacity: 1;
+}
+.card-conteudo h3{
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+}
+.card-conteudo p{
+    font-size: 1.0rem;
+    margin-bottom: 14px;
+    opacity: 1.0;
+}
+.btn{
+    display: inline-block;
+    padding: 8px 18px;
+    background: #070707;
+    color: #d35810;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 1.0rem;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+.btn:hover{
+    background: #ffffff;
+}
+/* RESPONSIVO*/
+@media(max-width:600px){
+    .card{
+        width: 90%;
+        height: 320px;
+    }
+}
+/* Caixa branca/escura translúcida para destacar o texto sobre o fundo */
+.container {
+    background-color: rgba(255, 255, 255, 0.9); /* Cor de fundo (branca com leve transparência) */
+    color: #222222; /* Cor do texto escuro para dar contraste */
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilização do Rodapé */
+footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #cccccc; /* Linha divisória acima do rodapé */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Botão de voltar */
+.back-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #1a365d;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.back-btn:hover {
+    background-color: #2b6cb0;
+}
